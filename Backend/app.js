@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const fruitList = require("./fruit-data.json");
 const CartService = require("./cart-service");
 const { purchase } = require("./cart-service");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 1234;
@@ -17,7 +18,7 @@ FruitRoutes.setup(apiRoutes);
 
 // TODO-4: need to setup route for cart purchase
 
-app.use(bodyParser.json());
+app.use(bodyParser.json(), cors());
 
 app.post("/purchase", async (req, res) => {
   // try {
@@ -47,7 +48,7 @@ app.use("/api", apiRoutes);
 
 // basic get route for the system
 app.get("/", (req, res) => {
-  res.json("This is my api dammit");
+  res.json({ error: "This is my api dammit" });
 });
 
 app.get("/show/:fruit", (req, res) => {

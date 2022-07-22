@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.cart {
+  border-style: dashed;
+  color: blueviolet;
+  width: 200px;
+  height: 300px;
+  /* margin-left: 100px; */
+  display: inline-block;
+  flex-direction: row;
+}
